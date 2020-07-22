@@ -59,7 +59,9 @@ app.get('/isalive', (req, res) => {
 })
 
 // ROUTES
+app.use('/scripts', express.static('static'))
 app.use('/', router)
+
 
 // ERROR HANDLING
 app.use((err, req, res, next) => {

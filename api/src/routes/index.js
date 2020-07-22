@@ -16,7 +16,8 @@ router.get(`/auth/logout`, auth.logout())
 // USER
 router.get(`/user/profile`, auth.ensureAuthenticated(), user.getUserProfile())
 
-router.get('/', auth.ensureAuthenticated(), frontend.showFrontPage())
+// router.get('/',  frontend.firstPage())
+router.get('/',  frontend.TeamsfirstPage())
 
 // GET TOKEN FLOWS
 router.get(`/token`, auth.ensureAuthenticated(), token.getToken())
@@ -26,5 +27,10 @@ router.get(`/tokenuser`, auth.ensureAuthenticated(), token.getTokenUser())
 router.get(`/tokenbehalf`, auth.ensureAuthenticated(), token.getTokenOnBehalf())
 
 router.get(`/tokenverify`, auth.ensureAuthenticated(), token.verifyToken())
+
+router.get(`/config`, frontend.config())
+
+router.get(`/authtab`, frontend.AuthTab())
+
 
 module.exports = router
