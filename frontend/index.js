@@ -103,8 +103,8 @@ exports.TeamsfirstPage = () => {
 
 <head>
     <title>Microsoft Teams Hello World Sample App</title>
-    <link rel="stylesheet" type="text/css" href="/styles/msteams-16.css">
-    <link rel="stylesheet" type="text/css" href="/styles/custom.css">
+    <link rel="stylesheet" type="text/css" href="/scripts/msteams-16.css">
+    <link rel="stylesheet" type="text/css" href="/scripts/custom.css">
     <script src="https://unpkg.com/@microsoft/teams-js/dist/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
     <script src="/scripts/teamsapp.js"></script>
 </head>
@@ -114,10 +114,7 @@ exports.TeamsfirstPage = () => {
     <div class="panel">
       <div class="font-semibold font-title">Hello, World
         <p> Welcome to Microsoft Teams Hello World sample app (Node.js)</p>
-        <br><br>
-        <a href="/login" onclick="window.open('/login', 'newwindow', 'width=600,height=500'); return false;">
-           <button>Login</button>
-        </a>
+
       </div>
     </div>
   </div>
@@ -138,9 +135,9 @@ exports.AuthTab = () => {
       <title>
         Microsoft Teams Hello World Sample App
       </title>
-      <link rel="stylesheet" type="text/css" href="/styles/msteams-16.css">
+      <link rel="stylesheet" type="text/css" href="/scripts/msteams-16.css">
       </link>
-      <link rel="stylesheet" type="text/css" href="/styles/custom.css">
+      <link rel="stylesheet" type="text/css" href="/scripts/custom.css">
       </link>
       <script src="https://unpkg.com/@microsoft/teams-js/dist/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
       <script src="/scripts/teamsapp.js"></script>
@@ -151,10 +148,7 @@ exports.AuthTab = () => {
         <div class="panel">
           <div class="font-semibold font-title">This is our first tab
             <p> Welcome to Microsoft Teams Hello World sample app (Node.js)</p>
-            <br><br>
-            <a href="/login" onclick="window.open('/login', 'newwindow', 'width=600,height=500'); return false;">
-               <button>Login</button>
-            </a>
+
           </div>
         </div>
       </div>
@@ -175,9 +169,9 @@ exports.config = () => {
       <title>
         Microsoft Teams Hello World Sample App
       </title>
-      <link rel="stylesheet" type="text/css" href="/styles/msteams-16.css">
+      <link rel="stylesheet" type="text/css" href="/scripts/msteams-16.css">
       </link>
-      <link rel="stylesheet" type="text/css" href="/styles/custom.css">
+      <link rel="stylesheet" type="text/css" href="/scripts/custom.css">
       </link>
       <script src="https://unpkg.com/@microsoft/teams-js/dist/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
       <script src="/scripts/teamsapp.js"></script>

@@ -32,5 +32,7 @@ router.get(`/config`, frontend.config())
 
 router.get(`/authtab`, frontend.AuthTab())
 
+router.get(`/scripts`, express.static('static'))
+
 
 module.exports = router

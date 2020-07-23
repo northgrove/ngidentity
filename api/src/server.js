@@ -1,5 +1,6 @@
 'use strict'
 
+const msteams = require('express-msteams-host')
 const { host, sessionSecret, cookieDomain } = require('./config/config')
 const express = require('express')
 const cookieParser = require('cookie-parser')
@@ -22,6 +23,8 @@ app.use(helmet())
 //  host: 'webproxy.nais',
 //  port: '8088'
 //})
+
+
 
 // CORS
 const cors = function(req, res, next) {
@@ -61,6 +64,7 @@ app.get('/isalive', (req, res) => {
 // ROUTES
 app.use('/scripts', express.static('static'))
 app.use('/', router)
+
 
 
 // ERROR HANDLING
