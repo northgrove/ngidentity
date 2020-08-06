@@ -1,6 +1,10 @@
 const msgraph = require('../api/src/controllers/msgraph')
 const auth = require('../api/src/controllers/authenticate')
 const path = require('path')
+const isauth = require('../api/src/config/findUser')
+const { stat } = require('fs')
+
+
 exports.showFrontPage = () => {
     return async (req, res) => {
      
@@ -42,7 +46,7 @@ exports.showFrontPage = () => {
 
   exports.firstPage = () => {
     return async (req, res) => {
-     
+      
     
       console.log("\x1b[33m%s\x1b[0m" ,' - showing firstpage')
       res.send(`
@@ -127,7 +131,12 @@ exports.TeamsfirstPage = () => {
 
 exports.AuthTab = () => {
   return async (req, res) => {
-      if (req.isAuthenticated()) {
+
+      const userauth = isauth.isuserloggedin()
+
+      console.log(userauth)
+
+      if (userauth == 'OK') {
         res.send(`
         <!DOCTYPE html>
         <html lang="en">
@@ -169,7 +178,7 @@ exports.AuthTab = () => {
      res.send(`
       <!DOCTYPE html>
       <html lang="en">
-      <meta http-equiv="refresh" content="10" >
+      
       <head>
         <title>
           Microsoft Teams Hello World Sample App
@@ -225,13 +234,12 @@ exports.config = () => {
       <link rel="stylesheet" type="text/css" href="/scripts/custom.css">
       </link>
       <script src="https://statics.teams.cdn.office.net/sdk/v1.6.0/js/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
-      <script src="/scripts/teamsapp.js"></script>
+     
     </head>
     <body class="theme-light">
-    <script>
-    microsoftTeams.initialize();
-    </script>
+
   <div class="surface">
+  <script src="/scripts/teamsapp.js"></script>
     <div class="panel">
       <div class="font-semibold font-title">Configure your app here
         <p>
@@ -249,9 +257,7 @@ exports.config = () => {
     </div>
   </div>
   </div>
-  <script>
-  microsoftTeams.appInitialization.notifySuccess();
-  </script>
+
 </body>
 
 </html>

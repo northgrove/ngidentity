@@ -4,6 +4,7 @@ const auth = require('../controllers/authenticate')
 const user = require('../controllers/user')
 const frontend = require('../../../frontend/index')
 const token = require('../controllers/token')
+const finduser = require('../config/findUser')
 
 
 // AUTHENTICATION
@@ -36,6 +37,7 @@ router.get('/idlogin', auth.authidporten())
 
 router.post('/idcallback', auth.idportencallback())
 
+//router.get('/isloggedin', finduser.isuserloggedin())
 
 //router.get(`/scripts`, express.static('static'))
 
