@@ -140,7 +140,7 @@ exports.AuthTab = () => {
           </link>
           <link rel="stylesheet" type="text/css" href="/scripts/custom.css">
           </link>
-          <script src="https://unpkg.com/@microsoft/teams-js/dist/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
+          <script src="https://statics.teams.cdn.office.net/sdk/v1.6.0/js/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
           <script src="/scripts/teamsapp.js"></script>
         </head>
         
@@ -171,7 +171,7 @@ exports.AuthTab = () => {
         </link>
         <link rel="stylesheet" type="text/css" href="/scripts/custom.css">
         </link>
-        <script src="https://unpkg.com/@microsoft/teams-js/dist/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
+        <script src="https://statics.teams.cdn.office.net/sdk/v1.6.0/js/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
         <script src="/scripts/teamsapp.js"></script>
       </head>
       
@@ -208,7 +208,7 @@ exports.config = () => {
       </link>
       <link rel="stylesheet" type="text/css" href="/scripts/custom.css">
       </link>
-      <script src="https://unpkg.com/@microsoft/teams-js/dist/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
+      <script src="https://statics.teams.cdn.office.net/sdk/v1.6.0/js/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
       <script src="/scripts/teamsapp.js"></script>
     </head>
     <body class="theme-light">
@@ -222,6 +222,7 @@ exports.config = () => {
               <option value="" selected="selected">(Select a tab)</option>
               <option value="first">First</option>
               <option value="second">Second</option>
+              <option value="authtab">AuthTab</option>
             </select>
           </div>
         </p>
