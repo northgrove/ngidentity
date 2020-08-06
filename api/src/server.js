@@ -26,7 +26,7 @@ app.use(helmet())
 //})
 
 
-
+/*
 // CORS
 const cors = function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', host)
@@ -39,6 +39,7 @@ const cors = function(req, res, next) {
   return next()
 }
 app.use(cors)
+*/
 
 // SESSION
 app.use(bodyParser.json())
