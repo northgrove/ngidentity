@@ -21,11 +21,11 @@ exports.tenantIdOrName = "msgroveb2c.onmicrosoft.com"
 
 if (process.env['NODE_ENV'] === 'production') {
   exports.identityMetadata =
-    'https://login.microsoftonline.com/common/.well-known/openid-configuration'
-  exports.tokenURI = `https://login.microsoftonline.com/common/oauth2/token`
-  exports.logoutURL = `https://login.microsoftonline.com/common/oauth2/logout?post_logout_redirect_uri=http:\\\\basta.nais.io:8080`
-  exports.allowHttpForRedirectUrl = false
-  exports.loggingLevel = 'error'
+    'https://msgroveb2c.b2clogin.com/msgroveb2c.onmicrosoft.com/.well-known/openid-configuration?p=B2C_1_exampleApp_signing' //B2C_1_Email-Signup'
+  exports.tokenURI = `https://msgroveb2c.b2clogin.com/msgroveb2c.onmicrosoft.com/oauth2/authresp` //`https://login.microsoftonline.com/common/oauth2/token`
+  exports.logoutURL = `https://login.microsoftonline.com/common/oauth2/logout?post_logout_redirect_uri=http:\\\\localhost:8081`
+  exports.allowHttpForRedirectUrl = true
+  exports.loggingLevel = 'debug'
 } else if (process.env['NODE_ENV'] === 'development') {
   exports.identityMetadata =
     'https://msgroveb2c.b2clogin.com/msgroveb2c.onmicrosoft.com/.well-known/openid-configuration?p=B2C_1_exampleApp_signing' //B2C_1_Email-Signup'
@@ -35,9 +35,9 @@ if (process.env['NODE_ENV'] === 'production') {
   exports.loggingLevel = 'debug'
 } else {
   exports.identityMetadata =
-  'https://login.microsoftonline.com/common/.well-known/openid-configuration'
-  exports.tokenURI = `https://login.microsoftonline.com/common/oauth2/token`
-  exports.logoutURL = `https://login.microsoftonline.com/common/oauth2/logout?post_logout_redirect_uri=http:\\\\localhost:8080`
+    'https://msgroveb2c.b2clogin.com/msgroveb2c.onmicrosoft.com/.well-known/openid-configuration?p=B2C_1_exampleApp_signing' //B2C_1_Email-Signup'
+  exports.tokenURI = `https://msgroveb2c.b2clogin.com/msgroveb2c.onmicrosoft.com/oauth2/authresp` //`https://login.microsoftonline.com/common/oauth2/token`
+  exports.logoutURL = `https://login.microsoftonline.com/common/oauth2/logout?post_logout_redirect_uri=http:\\\\localhost:8081`
   exports.allowHttpForRedirectUrl = true
   exports.loggingLevel = 'debug'
 }
