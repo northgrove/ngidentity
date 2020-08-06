@@ -180,7 +180,7 @@ exports.AuthTab = () => {
           <div class="panel">
             <div class="font-semibold font-title">This is our first tab
               <p> Welcome to Microsoft Teams Hello World sample app (Node.js)</p>
-              <a href="http://localhost:8081/login"> Please login</a>
+              <a href="/login"> Please login</a>
               
 
             </div>
