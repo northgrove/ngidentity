@@ -18,6 +18,7 @@ exports.cookieEncryptionKeys = [passportkey1, passportkey2]
 exports.nonceLifetime = 36000
 exports.isB2C = true
 exports.tenantIdOrName = "msgroveb2c.onmicrosoft.com"
+exports.cookieSameSite = true
 
 if (process.env['NODE_ENV'] === 'production') {
   exports.identityMetadata =

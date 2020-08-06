@@ -14,9 +14,11 @@ const {
   useCookieInsteadOfSession,
   nonceLifetime,
   isB2C,
-  tenantIdOrName
+  tenantIdOrName,
+  cookieSameSite
 } = require('./passportConfig')
 const finduser = require('./findUser')
+const { cookie } = require('request')
 const OIDCStrategy = require('passport-azure-ad').OIDCStrategy
 
 
@@ -50,7 +52,8 @@ module.exports = passport => {
         loggingLevel: loggingLevel,
         cookieEncryptionKeys: cookieEncryptionKeys,
         useCookieInsteadOfSession: useCookieInsteadOfSession,
-        nonceLifetime: nonceLifetime
+        nonceLifetime: nonceLifetime,
+        cookieSameSite: cookieSameSite
       },
       (req, iss, sub, profile, accessToken, refreshToken, done) => {
         console.log("authenticating")
