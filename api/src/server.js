@@ -17,7 +17,7 @@ const { logoutURL } = require('../src/config/passportConfig')
 const app = express()
 
 // HELMET
-app.use(helmet())
+//app.use(helmet())
 
 // webproxy support
 //globalTunnel.initialize({
