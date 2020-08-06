@@ -14,7 +14,7 @@
 </head>
 
 <body class="theme-light">
-  <script src="/scripts/teamsapp.js"></script>
+
   <div class="surface">
     <div class="panel">
       <div class="font-semibold font-title">This is our first tab
@@ -23,6 +23,12 @@
     </div>
   </div>
   </div>
+  <script>
+    microsoftTeams.initialize();
+    console.log("teams loaded-")
+    microsoftTeams.appInitialization.notifyAppLoaded();
+    microsoftTeams.appInitialization.notifySuccess();
+   </script>
 </body>
 
 </html>
