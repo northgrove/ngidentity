@@ -3,7 +3,7 @@
 
     // Call the initialize API first
     microsoftTeams.initialize();
-
+    console.log("teams loaded")
     // Check the initial theme user chose and respect it
     microsoftTeams.getContext(function (context) {
         if (context && context.theme) {
@@ -14,6 +14,7 @@
     // Handle theme changes
     microsoftTeams.registerOnThemeChangeHandler(function (theme) {
         setTheme(theme);
+        console.log(theme)
     });
 
     // Save configuration changes
@@ -29,6 +30,7 @@
         // for the app to call this API before it dismisses the dialog. If the wait times out, you will
         // see an error indicating that the configuration settings could not be saved.
         saveEvent.notifySuccess();
+        console.log("success")
     });
 
     // Logic to let the user configure what they want to see in the tab being loaded
@@ -60,7 +62,7 @@
     function createTabUrl() {
         var tabChoice = document.getElementById('tabChoice');
         var selectedTab = tabChoice[tabChoice.selectedIndex].value;
-
+        console.log("tab")
         return (
             window.location.protocol +
             '//' +
