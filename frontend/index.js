@@ -145,6 +145,9 @@ exports.AuthTab = () => {
         </head>
         
         <body class="theme-light">
+        <script>
+        microsoftTeams.initialize();
+        </script>
           <div class="surface">
             <div class="panel">
               <div class="font-semibold font-title">Authenticated
@@ -154,6 +157,9 @@ exports.AuthTab = () => {
             </div>
           </div>
           </div>
+          <script>
+          microsoftTeams.appInitialization.notifySuccess();
+          </script>
         </body>
         
         </html>
@@ -176,6 +182,9 @@ exports.AuthTab = () => {
       </head>
       
       <body class="theme-light">
+      <script>
+      microsoftTeams.initialize();
+      </script>
         <div class="surface">
           <div class="panel">
             <div class="font-semibold font-title">This is our first tab
@@ -187,6 +196,9 @@ exports.AuthTab = () => {
           </div>
         </div>
         </div>
+        <script>
+        microsoftTeams.appInitialization.notifySuccess();
+        </script>
       </body>
       
       </html>
@@ -212,6 +224,9 @@ exports.config = () => {
       <script src="/scripts/teamsapp.js"></script>
     </head>
     <body class="theme-light">
+    <script>
+    microsoftTeams.initialize();
+    </script>
   <div class="surface">
     <div class="panel">
       <div class="font-semibold font-title">Configure your app here
@@ -230,6 +245,9 @@ exports.config = () => {
     </div>
   </div>
   </div>
+  <script>
+  microsoftTeams.appInitialization.notifySuccess();
+  </script>
 </body>
 
 </html>
