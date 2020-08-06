@@ -135,7 +135,7 @@ exports.AuthTab = () => {
       const userauth = isauth.isuserloggedin()
 
       console.log(userauth)
-
+      console.log(req)
       if (userauth == 'OK') {
         res.send(`
         <!DOCTYPE html>
