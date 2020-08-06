@@ -1,6 +1,6 @@
 const msgraph = require('../api/src/controllers/msgraph')
 const auth = require('../api/src/controllers/authenticate')
-
+const path = require('path')
 exports.showFrontPage = () => {
     return async (req, res) => {
      
@@ -165,7 +165,8 @@ exports.AuthTab = () => {
         </html>
         `)}
    else {
-      res.send(`
+    res.sendFile(path.join(__dirname + '/first.html'));
+      /*(`
       <!DOCTYPE html>
       <html lang="en">
       
@@ -202,7 +203,8 @@ exports.AuthTab = () => {
       </body>
       
       </html>
-      `)}
+      `)*/
+    }
   }
 }
 
