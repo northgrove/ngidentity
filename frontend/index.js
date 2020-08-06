@@ -169,7 +169,7 @@ exports.AuthTab = () => {
      res.send(`
       <!DOCTYPE html>
       <html lang="en">
-      
+      <meta http-equiv="refresh" content="10" >
       <head>
         <title>
           Microsoft Teams Hello World Sample App
@@ -190,8 +190,10 @@ exports.AuthTab = () => {
           <div class="panel">
             <div class="font-semibold font-title">This is our first tab
               <p> Welcome to Microsoft Teams Hello World sample app (Node.js)</p>
-              <a href="/idlogin"> Please login</a>
               
+              <a onclick="window.open('/login', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+               Click here to login
+              </a>
 
             </div>
           </div>
