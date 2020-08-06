@@ -165,8 +165,8 @@ exports.AuthTab = () => {
         </html>
         `)}
    else {
-    res.sendFile(path.join(__dirname + '/first.html'));
-      /*(`
+     //File(path.join(__dirname + '/first.html'));
+     res.send(`
       <!DOCTYPE html>
       <html lang="en">
       
@@ -203,7 +203,7 @@ exports.AuthTab = () => {
       </body>
       
       </html>
-      `)*/
+      `)
     }
   }
 }
