@@ -35,11 +35,12 @@
     "morgan": "^1.9.0",
     "nock": "^10.0.1",
     "oauth": "^0.9.15",
+    "oidc-client": "^1.10.1",
     "passport": "^0.4.0",
     "passport-azure-ad": "^4.0.0",
     "path": "^0.12.7",
     "pretty-quick": "^1.6.0",
-    "request": "^2.88.0",
+    "request": "^2.88.2",
     "request-promise": "^4.2.2"
   },
   "devDependencies": {

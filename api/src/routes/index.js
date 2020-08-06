@@ -32,6 +32,11 @@ router.get('/config', frontend.config())
 
 router.get('/authtab', frontend.AuthTab())
 
+router.get('/idlogin', auth.authidporten())
+
+router.post('/idcallback', auth.idportencallback())
+
+
 //router.get(`/scripts`, express.static('static'))
 
 

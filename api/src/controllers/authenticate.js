@@ -1,6 +1,8 @@
 const passport = require('passport')
 const { logoutURL } = require('../config/passportConfig')
 const token = require('./token')
+//const { OidcClient } = require('oidc-client')
+const request = require('request');
 
 
 // AZURE AUTHENTICATE
@@ -85,5 +87,61 @@ exports.logout = (req, res) => {
       res.status(500).send(err)
       return `ERROR during logout: ${err}`
     }
+  }
+}
+
+
+exports.authidporten = (req, res) => {
+  return (req, res) => {
+    console.log("jau")
+    res.redirect("https://oidc-ver2.difi.no/idporten-oidc-provider/authorize?client_id=3091c96a-b34d-4bc4-87c5-009717af7b6d&redirect_uri=http://localhost:8081/idcallback&response_type=code&scope=openid&response_mode=form_post&nonce=tull&state=jau")
+    }
+ 
+}
+
+exports.idportencallback = (req, res) => {
+  return (req, res) => {
+    console.log("req:", req)
+    console.log("res:", res)
+    if(req.body.code) {
+      res.send(`
+      <!DOCTYPE html>
+      <html lang="en">
+      
+      <head>
+        <title>
+          Microsoft Teams Hello World Sample App
+        </title>
+        <link rel="stylesheet" type="text/css" href="/scripts/msteams-16.css">
+        </link>
+        <link rel="stylesheet" type="text/css" href="/scripts/custom.css">
+        </link>
+        <script src="https://statics.teams.cdn.office.net/sdk/v1.6.0/js/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
+        <script src="/scripts/teamsapp.js"></script>
+      </head>
+      
+      <body class="theme-light">
+      <script>
+      microsoftTeams.initialize();
+      </script>
+        <div class="surface">
+          <div class="panel">
+            <div class="font-semibold font-title">Authenticated
+              <p> You are authenticated</p>
+
+            </div>
+          </div>
+        </div>
+        </div>
+        <script>
+        microsoftTeams.appInitialization.notifySuccess();
+        </script>
+      </body>
+      
+      </html>
+      `)}
+      else {
+        res.send(200)
+      }
   }
 }
