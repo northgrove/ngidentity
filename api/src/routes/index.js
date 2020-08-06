@@ -7,7 +7,7 @@ const token = require('../controllers/token')
 
 
 // AUTHENTICATION
-router.get('/login/:param1?/:param2?/:param3?', auth.authenticateAzure())
+router.get('/login', auth.authenticateAzure())
 
 router.post('/auth/openid/callback', auth.authenticateAzureCallback())
 
@@ -28,11 +28,11 @@ router.get(`/tokenbehalf`, auth.ensureAuthenticated(), token.getTokenOnBehalf())
 
 router.get(`/tokenverify`, auth.ensureAuthenticated(), token.verifyToken())
 
-router.get(`/config`, frontend.config())
+router.get('/config', frontend.config())
 
-router.get(`/authtab`, frontend.AuthTab())
+router.get('/authtab', frontend.AuthTab())
 
-router.get(`/scripts`, express.static('static'))
+//router.get(`/scripts`, express.static('static'))
 
 
 module.exports = router

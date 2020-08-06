@@ -40,7 +40,7 @@ exports.authenticateAzureCallback = () => {
     try {
       passport.authenticate('azuread-openidconnect', {
         response: res,
-        successRedirect: req.session.redirectUrl || '/',
+        successRedirect: '/authtab',
         failureRedirect: '/error'
       })(req, res, next)
     } catch (err) {

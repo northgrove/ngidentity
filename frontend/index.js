@@ -1,5 +1,5 @@
 const msgraph = require('../api/src/controllers/msgraph')
-
+const auth = require('../api/src/controllers/authenticate')
 
 exports.showFrontPage = () => {
     return async (req, res) => {
@@ -127,36 +127,71 @@ exports.TeamsfirstPage = () => {
 
 exports.AuthTab = () => {
   return async (req, res) => {
-    res.send(`
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-      <title>
-        Microsoft Teams Hello World Sample App
-      </title>
-      <link rel="stylesheet" type="text/css" href="/scripts/msteams-16.css">
-      </link>
-      <link rel="stylesheet" type="text/css" href="/scripts/custom.css">
-      </link>
-      <script src="https://unpkg.com/@microsoft/teams-js/dist/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
-      <script src="/scripts/teamsapp.js"></script>
-    </head>
-    
-    <body class="theme-light">
-      <div class="surface">
-        <div class="panel">
-          <div class="font-semibold font-title">This is our first tab
-            <p> Welcome to Microsoft Teams Hello World sample app (Node.js)</p>
+      if (req.isAuthenticated()) {
+        res.send(`
+        <!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+          <title>
+            Microsoft Teams Hello World Sample App
+          </title>
+          <link rel="stylesheet" type="text/css" href="/scripts/msteams-16.css">
+          </link>
+          <link rel="stylesheet" type="text/css" href="/scripts/custom.css">
+          </link>
+          <script src="https://unpkg.com/@microsoft/teams-js/dist/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
+          <script src="/scripts/teamsapp.js"></script>
+        </head>
+        
+        <body class="theme-light">
+          <div class="surface">
+            <div class="panel">
+              <div class="font-semibold font-title">Authenticated
+                <p> You are authenticated</p>
 
+              </div>
+            </div>
+          </div>
+          </div>
+        </body>
+        
+        </html>
+        `)}
+   else {
+      res.send(`
+      <!DOCTYPE html>
+      <html lang="en">
+      
+      <head>
+        <title>
+          Microsoft Teams Hello World Sample App
+        </title>
+        <link rel="stylesheet" type="text/css" href="/scripts/msteams-16.css">
+        </link>
+        <link rel="stylesheet" type="text/css" href="/scripts/custom.css">
+        </link>
+        <script src="https://unpkg.com/@microsoft/teams-js/dist/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
+        <script src="/scripts/teamsapp.js"></script>
+      </head>
+      
+      <body class="theme-light">
+        <div class="surface">
+          <div class="panel">
+            <div class="font-semibold font-title">This is our first tab
+              <p> Welcome to Microsoft Teams Hello World sample app (Node.js)</p>
+              <a href="http://localhost:8081/login"> Please login</a>
+              
+
+            </div>
           </div>
         </div>
-      </div>
-      </div>
-    </body>
-    
-    </html>
-    `)}
+        </div>
+      </body>
+      
+      </html>
+      `)}
+  }
 }
 
 exports.config = () => {

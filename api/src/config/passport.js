@@ -53,6 +53,7 @@ module.exports = passport => {
         nonceLifetime: nonceLifetime
       },
       (req, iss, sub, profile, accessToken, refreshToken, done) => {
+        console.log("authenticating")
         if (!profile.oid) {
           return done(new Error('No oid found'), null)
         }

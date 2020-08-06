@@ -3,6 +3,7 @@
 const msteams = require('express-msteams-host')
 const { host, sessionSecret, cookieDomain } = require('./config/config')
 const express = require('express')
+const path = require('path')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const passport = require('passport')
@@ -62,7 +63,7 @@ app.get('/isalive', (req, res) => {
 })
 
 // ROUTES
-app.use('/scripts', express.static('static'))
+app.use('/scripts', express.static(path.join(__dirname,'static')))
 app.use('/', router)
 
 
