@@ -52,7 +52,7 @@ app.use(
     name: 'navaadexample',
     keys: [`${process.env['COOKIE_KEY1']}`, `${process.env['COOKIE_KEY2']}`],
     maxAge: 24 * 60 * 60 * 1000, // 24 timer
-    sameSite: 'none'
+    //sameSite: 'lax'
   })
 )
 app.use(passport.initialize())

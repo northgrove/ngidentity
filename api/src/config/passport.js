@@ -15,7 +15,8 @@ const {
   nonceLifetime,
   isB2C,
   tenantIdOrName,
-  cookieSameSite
+  cookieSameSite,
+  customstate
 } = require('./passportConfig')
 const finduser = require('./findUser')
 const { cookie } = require('request')
@@ -52,8 +53,7 @@ module.exports = passport => {
         loggingLevel: loggingLevel,
         cookieEncryptionKeys: cookieEncryptionKeys,
         useCookieInsteadOfSession: useCookieInsteadOfSession,
-        nonceLifetime: nonceLifetime,
-        cookieSameSite: cookieSameSite
+        nonceLifetime: nonceLifetime
       },
       (req, iss, sub, profile, accessToken, refreshToken, done) => {
         console.log("authenticating")
@@ -75,6 +75,7 @@ module.exports = passport => {
               newUser.firstName = profile.name.givenName
               newUser.lastName = profile.name.familyName
               newUser.refreshToken = refreshToken
+              newUser.userguid = req.session.userguid
               finduser.users.push(newUser)
 
               req.session.userid = profile.oid

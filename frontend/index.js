@@ -3,6 +3,8 @@ const auth = require('../api/src/controllers/authenticate')
 const path = require('path')
 const isauth = require('../api/src/config/findUser')
 const { stat } = require('fs')
+const crypto = require("crypto");
+
 
 
 exports.showFrontPage = () => {
@@ -131,12 +133,21 @@ exports.TeamsfirstPage = () => {
 
 exports.AuthTab = () => {
   return async (req, res) => {
+    const userguid = crypto.randomBytes(16).toString("hex");
 
-      const userauth = isauth.isuserloggedin()
+    console.log(userguid);
+    if(req.session.userguid) {
+      console.log("userguid exist", req.session.userguid)
+    } else {
+      req.session.userguid = userguid
+    }
+    
+      
+    const userauth = isauth.isuserloggedin(userguid)
 
       console.log(userauth)
-      console.log(req)
-      if (userauth == 'OK') {
+     // console.log(req)
+      if (req.isAuthenticated()) {
         res.send(`
         <!DOCTYPE html>
         <html lang="en">
@@ -200,7 +211,7 @@ exports.AuthTab = () => {
             <div class="font-semibold font-title">This is our first tab
               <p> Welcome to Microsoft Teams Hello World sample app (Node.js)</p>
               
-              <a onclick="window.open('/login', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+              <a onclick="window.open('/login?userguid=${userguid}', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
                Click here to login
               </a>
 

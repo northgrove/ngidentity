@@ -9,14 +9,17 @@ const request = require('request');
 
 exports.authenticateAzure = () => {
   return (req, res, next) => {
-    const concatUrl = params => {
+    /*const concatUrl = params => {
       let string = ''
       Object.keys(params).forEach(e => {
         if (params[e]) string = `${string}/${params[e]}`
       })
       return string.toString()
     }
-    req.session.redirectUrl = concatUrl(req.params)
+    req.session.redirectUrl = concatUrl(req.params)*/
+    req.session.userguid = req.query.userguid
+    console.log("params:", req.query.userguid)
+    console.log("session:", req.session.userguid)
     try {
       console.log("\x1b[33m%s\x1b[0m" ,' - redirecting to Azure AD for authentication')
       passport.authenticate('azuread-openidconnect', {

@@ -11,12 +11,12 @@ exports.findByOid = function(oid, fn) {
   return fn(null, null)
 }
 
-exports.isuserloggedin = () => {
+exports.isuserloggedin = (userguid) => {
       console.log("sjekker bruker")
-    for (let i = 0, len = exports.users.length; i < len; i++) {
+     for (let i = 0, len = exports.users.length; i < len; i++) {
       var user = exports.users[i]
       console.log(user)
-      if (user) {
+      if (user.userguid == userguid) {
         return('OK')
       } 
     

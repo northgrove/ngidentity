@@ -19,6 +19,7 @@ exports.nonceLifetime = 36000
 exports.isB2C = true
 exports.tenantIdOrName = "msgroveb2c.onmicrosoft.com"
 exports.cookieSameSite = true
+exports.customstate = "123456"
 
 if (process.env['NODE_ENV'] === 'production') {
   exports.identityMetadata =
