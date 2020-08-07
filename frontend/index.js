@@ -133,22 +133,22 @@ exports.TeamsfirstPage = () => {
 
 exports.AuthTab = () => {
   return async (req, res) => {
-    const userguid = crypto.randomBytes(16).toString("hex");
+    var userguid = crypto.randomBytes(16).toString("hex");
 
-    console.log(userguid);
+    console.log("userguid-new:", userguid);
     if(req.session.userguid) {
       console.log("userguid exist", req.session.userguid)
-      const userguid = req.session.userguid
+      userguid = req.session.userguid
     } else {
       req.session.userguid = userguid
     }
-    
+    console.log("userguid-stored:", userguid)
       
     const userauth = isauth.isuserloggedin(userguid)
 
       console.log(userauth)
      // console.log(req)
-      if (req.isAuthenticated()) {
+      if (userauth) {
         res.send(`
         <!DOCTYPE html>
         <html lang="en">

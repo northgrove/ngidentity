@@ -15,7 +15,8 @@ exports.isuserloggedin = (userguid) => {
       console.log("sjekker bruker")
      for (let i = 0, len = exports.users.length; i < len; i++) {
       var user = exports.users[i]
-      console.log(user)
+      console.log("user:", user)
+      console.log("userguid:", userguid)
       if (user.userguid == userguid) {
         return('OK')
       } 
