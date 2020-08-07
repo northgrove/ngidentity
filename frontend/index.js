@@ -155,7 +155,7 @@ exports.AuthTab = () => {
         
         <head>
           <title>
-            Microsoft Teams Hello World Sample App
+            Microsoft Teams IDPorten eksempel applikasjon
           </title>
           <link rel="stylesheet" type="text/css" href="/scripts/msteams-16.css">
           </link>
@@ -171,8 +171,8 @@ exports.AuthTab = () => {
         </script>
           <div class="surface">
             <div class="panel">
-              <div class="font-semibold font-title">Authenticated
-                <p> You are authenticated</p>
+              <div class="font-semibold font-title">Autentisert
+                <p> Du er nå autentisert OK</p>
 
               </div>
             </div>
@@ -193,7 +193,7 @@ exports.AuthTab = () => {
       
       <head>
         <title>
-          Microsoft Teams Hello World Sample App
+          Microsoft Teams IDPorten eksempel applikasjon
         </title>
         <link rel="stylesheet" type="text/css" href="/scripts/msteams-16.css">
         </link>
@@ -203,18 +203,18 @@ exports.AuthTab = () => {
         <script src="/scripts/teamsapp.js"></script>
       </head>
       
-      <body class="theme-light">
+      <body class="theme-dark">
       <script>
       microsoftTeams.initialize();
       </script>
         <div class="surface">
           <div class="panel">
-            <div class="font-semibold font-title">This is our first tab
-              <p> Welcome to Microsoft Teams Hello World sample app (Node.js)</p>
+            <div class="font-semibold font-title">Verifisering av identitet med IDporten
+              <p class="font-base"> For å bekrefte din identitet er det nødvendig å gjøre en innlogging med IDporten</p>
               
-              <a onclick="window.open('/login?userguid=${userguid}', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
-               Click here to login
-              </a>
+              <button class="button-primary font-base" onclick="window.open('/login?userguid=${userguid}', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+               Klikk her for å begynne innloggingen
+              </button>
 
             </div>
           </div>
