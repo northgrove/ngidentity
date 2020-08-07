@@ -62,7 +62,9 @@ module.exports = passport => {
         }
         process.nextTick(() => {
           console.log("\x1b[33m%s\x1b[0m" ,' - doing authentication rutine in application')
-          finduser.findByOid(profile.oid, function(err, user) {
+          console.log(profile)
+          console.log("session:", req.session.userguid)
+          finduser.findByOid(req.session.userguid, function(err, user) {
             if (err) {
               return done(err)
             }
