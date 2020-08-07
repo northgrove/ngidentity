@@ -190,7 +190,7 @@ exports.AuthTab = () => {
      res.send(`
       <!DOCTYPE html>
       <html lang="en">
-      
+      <meta http-equiv="refresh" content="10">
       <head>
         <title>
           Microsoft Teams IDPorten eksempel applikasjon
