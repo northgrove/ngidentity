@@ -138,6 +138,7 @@ exports.AuthTab = () => {
     console.log(userguid);
     if(req.session.userguid) {
       console.log("userguid exist", req.session.userguid)
+      userguid = req.session.userguid
     } else {
       req.session.userguid = userguid
     }
